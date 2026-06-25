@@ -1,0 +1,18 @@
+class Solution {
+    /**
+     * @param {number} n
+     * @return {number}
+     */
+    climbStairs(n) {
+        const cache = {};
+
+        const dfs = (i) => {
+            if (i === n) return 1;
+            if (i > n) return 0;
+            if (cache[i]) return cache[i];
+            return cache[i] = dfs(i + 1) + dfs(i + 2);
+        }
+
+        return dfs(0);
+    }
+}
